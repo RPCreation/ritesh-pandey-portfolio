@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ritesh Pandey Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 3%;
+    
+    /* Brand Colors - Ritesh's Palette */
+    --saffron: 28 100% 67%;          /* Primary brand color */
+    --saffron-light: 28 100% 75%;
+    --saffron-dark: 28 100% 55%;
+    
+    --pink: 330 81% 60%;             /* Creative accent */
+    --pink-light: 330 81% 70%;
+    --pink-dark: 330 81% 45%;
+    
+    --yellow: 51 100% 50%;           /* CTA highlight */
+    --yellow-light: 51 100% 65%;
+    
+    --red: 0 84% 60%;                /* Alert/emphasis */
+    --red-light: 0 84% 70%;
+    
+    /* Neutral Palette */
+    --black: 0 0% 3%;
+    --gray-dark: 0 0% 20%;
+    --gray-medium: 0 0% 45%;
+    --gray-light: 0 0% 85%;
+    --white: 0 0% 100%;
+    
+    /* Design System Tokens */
+    --primary: var(--saffron);
+    --primary-foreground: var(--white);
+    --primary-light: var(--saffron-light);
+    --primary-dark: var(--saffron-dark);
+    
+    --secondary: var(--gray-light);
+    --secondary-foreground: var(--black);
+    
+    --accent: var(--pink);
+    --accent-foreground: var(--white);
+    --accent-light: var(--pink-light);
+    --accent-dark: var(--pink-dark);
+    
+    --creative: var(--yellow);
+    --creative-foreground: var(--black);
+    
+    --emphasis: var(--red);
+    --emphasis-foreground: var(--white);
+    
+    --muted: var(--gray-light);
+    --muted-foreground: var(--gray-medium);
+    
+    --card: var(--white);
+    --card-foreground: var(--black);
+    
+    --border: var(--gray-light);
+    --input: var(--white);
+    --ring: var(--primary);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--saffron)), hsl(var(--pink)));
+    --gradient-creative: linear-gradient(90deg, hsl(var(--yellow)), hsl(var(--red)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--white)), hsl(var(--gray-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--saffron) / 0.1), hsl(var(--pink) / 0.1));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 6px -1px hsl(var(--black) / 0.1);
+    --shadow-medium: 0 10px 15px -3px hsl(var(--black) / 0.1);
+    --shadow-large: 0 25px 50px -12px hsl(var(--black) / 0.25);
+    --shadow-creative: 0 8px 25px hsl(var(--primary) / 0.25);
+    
+    /* Spacing & Layout */
+    --container-padding: 1.5rem;
+    --section-spacing: 5rem;
+    --radius: 0.75rem;
+    --radius-large: 1.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    scroll-behavior: smooth;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  /* Animated Background Elements */
+  .floating-shapes::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    background: hsl(var(--pink) / 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-shapes::after {
+    content: '';
+    position: absolute;
+    bottom: 15%;
+    left: 15%;
+    width: 80px;
+    height: 80px;
+    background: hsl(var(--yellow) / 0.1);
+    border-radius: 30%;
+    animation: float 8s ease-in-out infinite reverse;
+  }
+  
+  /* Skill Icons Hover Effect */
+  .skill-card {
+    transition: all 0.3s ease;
+    @apply hover:shadow-large hover:-translate-y-2;
+  }
+  
+  /* Project Card Hover Effects */
+  .project-card {
+    transition: all 0.4s ease;
+    @apply hover:shadow-creative hover:-translate-y-1;
+  }
+  
+  .project-card:hover .project-image {
+    transform: scale(1.05);
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--gray-light));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-dark));
+  }
+}
+
+@layer utilities {
+  /* Text Gradients */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-creative {
+    background: var(--gradient-creative);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 3s infinite;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
