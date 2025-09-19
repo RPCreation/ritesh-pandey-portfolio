@@ -1,6 +1,6 @@
 import { ArrowRight, Download, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import profileImage from '@/assets/ritesh-profile.webp';
+import profileImage from '@/assets/Ritesh Pandey.webp';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
